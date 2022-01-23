@@ -24,7 +24,7 @@ function addtxt() {
         //creating cancel button
         cbtnn = document.createElement("button");
         cbtnn.setAttribute("class", "cbtn");
-        ctxtnd = document.createTextNode("x");
+        ctxtnd = document.createTextNode("-");
         cbtnn.appendChild(ctxtnd);
         cbtnn.onclick = function (event) {
             del(event.currentTarget);
