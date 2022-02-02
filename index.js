@@ -12,6 +12,8 @@ function del(e) {
 function getlitext(e) {
     // console.log(storedevent.srcElement.parentElement.childNodes[0].data); for testing if we can get text of current list
     storedevent = e;
+    storedevent.srcElement.parentElement.style.transition="";
+    storedevent.srcElement.parentElement.style.backgroundColor="rgb(210, 216, 216)";
     ip.value = storedevent.srcElement.parentElement.childNodes[0].data;
     ip.focus();
     flag = 1;
@@ -22,6 +24,8 @@ function updatelitext() {
     flag = 0;
     ip.value = "";
     ip.focus();
+    storedevent.srcElement.parentElement.style.backgroundColor="";
+    storedevent.srcElement.parentElement.style.transition="background-color 1s";
 }
 
 function addtxt() {
