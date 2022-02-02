@@ -1,46 +1,80 @@
-var txtnd, opdiv, str = "", lii, ctxtnd, cbtnn ;
+let litxtnd, str = "", lii, dtxtnd, etxtnd, dbtnn, ebtnn, flag = 0, storedevent;
 
-var ip = document.querySelector("#ip");
-var adbtn = document.querySelector("#addbtn");
+let ip = document.querySelector("#ip");
+let adbtn = document.querySelector("#addbtn");
+let opdiv = document.querySelector("#op");
 adbtn.addEventListener("click", addtxt);
 
 function del(e) {
     e.parentNode.remove();
 }
 
+function getlitext(e) {
+    // console.log(e.path[1].childNodes[0].data); for testing if we can get text of current list
+    storedevent = e;
+    ip.value = e.path[1].childNodes[0].data;
+    ip.focus();
+    flag = 1;
+}
+
+function updatelitext() {
+    storedevent.path[1].childNodes[0].data = ip.value;
+    flag = 0;
+    ip.value = "";
+    ip.focus();
+}
+
 function addtxt() {
-    str = ip.value;
-    if (str == "") {
-        alert("Please Enter list item");
-        return false;
+
+    if (flag == 1) {
+        updatelitext();
     }
+
     else {
-        //creating list
-        lii = document.createElement("li");
-        lii.setAttribute("class", "liitem");
-        txtnd = document.createTextNode(str);
-        lii.appendChild(txtnd);
-
-        //creating cancel button
-        cbtnn = document.createElement("button");
-        cbtnn.setAttribute("class", "cbtn");
-        ctxtnd = document.createTextNode("-");
-        cbtnn.appendChild(ctxtnd);
-        cbtnn.onclick = function (event) {
-            del(event.currentTarget);
+        str = ip.value;
+        if (str == "") {
+            alert("Please enter list item");
+            return false;
         }
+        else {
+            //creating list
+            lii = document.createElement("li");
+            lii.setAttribute("class", "liitem");
+            litxtnd = document.createTextNode(str);
+            lii.appendChild(litxtnd);
 
-        //adding button to list
-        lii.appendChild(cbtnn);
+            //creating delete button
+            dbtnn = document.createElement("button");
+            dbtnn.setAttribute("class", "dbtn");
+            dtxtnd = document.createTextNode("-");
+            dbtnn.appendChild(dtxtnd);
+            dbtnn.onclick = function (event) {
+                del(event.currentTarget);
+            }
 
-        //adding list to output div
-        opdiv = document.querySelector("#op");
-        opdiv.appendChild(lii);
+            //adding delete button to list
+            lii.appendChild(dbtnn);
 
+            //creating edit button
+            ebtnn = document.createElement("button");
+            ebtnn.setAttribute("class", "dbtn");
+            etxtnd = document.createTextNode("e");
+            ebtnn.appendChild(etxtnd);
+            ebtnn.onclick = function (event) {
+                getlitext(event);
+            }
 
-        ip.value = "";
-        ip.focus();
+            //adding  edit button to list
+            lii.appendChild(ebtnn);
+
+            //adding list to output div
+            opdiv.appendChild(lii);
+
+            ip.value = "";
+            ip.focus();
+        }
     }
+
 }
 
 // adbtn.style.backgroundColor="grey";
