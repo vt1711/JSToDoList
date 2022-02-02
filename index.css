@@ -28,7 +28,8 @@ body {
   padding-left: 0.5rem;
 }
 #addbtn,
-.dbtn {
+.dbtn,
+.ebtn {
   background-color: rgb(0, 255, 76);
   border: solid 2px rgb(16, 153, 16);
   color: green;
@@ -51,7 +52,8 @@ body {
   overflow: auto;
   box-shadow: 0 0 10px rgb(219, 153, 72);
 }
-.dbtn {
+.dbtn,
+.ebtn {
   background-color: red;
   color: white;
   border: none;
@@ -61,9 +63,11 @@ body {
   text-align: center;
   margin: 0 0 0 2rem;
 }
-.dbtn:active {
-  background-color: brown;
+.ebtn {
+  background-color: rgb(255, 123, 0);
+  margin-left: 1rem;
 }
+
 .liitem {
   padding: 1rem 0 0 2rem;
   list-style-type: none;
@@ -87,23 +91,23 @@ body {
     border-radius: 0.3rem;
   }
   #addbtn,
- .dbtn {
+  .dbtn {
   height: 1.9rem;
   width: 1.9rem;
   font-size: 0.9rem;
   margin-left: 0.1rem;
- }
- #op {
+  }
+  #op {
   width: 20.6rem;
   height: 37rem;
   margin: 0 0 0 1.3rem;
   border-radius: 0.3rem;
-}
-.dbtn{
+  }
+  .dbtn,
+  .ebtn {
   margin-left: 1rem;
   height: 0.9rem;
   width: 0.9rem;
   font-size: 0.5rem;
-}
-
+  }
 }

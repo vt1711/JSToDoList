@@ -10,15 +10,15 @@ function del(e) {
 }
 
 function getlitext(e) {
-    // console.log(e.path[1].childNodes[0].data); for testing if we can get text of current list
+    // console.log(storedevent.srcElement.parentElement.childNodes[0].data); for testing if we can get text of current list
     storedevent = e;
-    ip.value = e.path[1].childNodes[0].data;
+    ip.value = storedevent.srcElement.parentElement.childNodes[0].data;
     ip.focus();
     flag = 1;
 }
 
 function updatelitext() {
-    storedevent.path[1].childNodes[0].data = ip.value;
+    storedevent.srcElement.parentElement.childNodes[0].data = ip.value;
     flag = 0;
     ip.value = "";
     ip.focus();
@@ -57,7 +57,7 @@ function addtxt() {
 
             //creating edit button
             ebtnn = document.createElement("button");
-            ebtnn.setAttribute("class", "dbtn");
+            ebtnn.setAttribute("class", "ebtn");
             etxtnd = document.createTextNode("e");
             ebtnn.appendChild(etxtnd);
             ebtnn.onclick = function (event) {
